@@ -4,7 +4,7 @@ import { toaster } from '@/components/ui/toaster';
 import useUsers from '@/lib/hooks/useUsers';
 import { ResponseError, UserRole } from '@/lib/types';
 import { delay } from '@/lib/utils/common.util';
-import { useUserStore } from '@/lib/zustand/user/user.store';
+import { useUserStore } from '@/lib/zustand/user';
 import { Box, InputGroup, Input, Button, Spinner } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
