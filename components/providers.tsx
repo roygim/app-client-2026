@@ -3,8 +3,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { ChakraProvider } from '@chakra-ui/react'
-import { system } from '../lib/chakra';
 import { Toaster } from './ui/toaster';
  
 const queryClient = new QueryClient()
@@ -20,10 +18,8 @@ function Providers({ children }: { children: React.ReactNode }) {
  
     return (
         <QueryClientProvider client={queryClient}>
-            <ChakraProvider value={system}>
-                {children}
-                <Toaster />
-            </ChakraProvider>
+            {children}
+            <Toaster />
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
     )

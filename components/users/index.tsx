@@ -3,7 +3,6 @@
 import useUsers from '@/lib/hooks/useUsers'
 import { User } from '@/lib/types'
 import { cn } from '@/lib/utils/common.util'
-import { useDisclosure } from '@chakra-ui/react'
 import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -24,13 +23,13 @@ function Users() {
     const { data: users, isLoading, isSuccess, isError, error } = getUserQuery()
     const { mutateAsync: deleteUserAsync, isPending: isDeletePending } = deleteUserMutation()
 
-    const { open: isEditOpen, onOpen: onEditOpen, onClose: onEditClose } = useDisclosure()
-    const { open: isDeleteOpen, onOpen: onDeleteOpen, onClose: onDeleteClose } = useDisclosure()
+    const [isEditOpen, setIsEditOpen] = useState(false)
+    const [isDeleteOpen, setIsDeleteOpen] = useState(false)
 
     const handleEditUserClick = (user: User) => {
         console.log('user', user);
         setEditUser(user)
-        onEditOpen()
+        setIsEditOpen(true)
     }
 
     const handleCloseEditModal = async (refresh: boolean) => {
@@ -38,18 +37,18 @@ function Users() {
             queryClient.invalidateQueries({ queryKey: ['users'] })
         }
         setEditUser(null)
-        onEditClose()
+        setIsEditOpen(false)
     }
 
     const handleDeleteUserClick = (user: User) => {
         setDeleteUserId(user.id)
         setDeleteQuestion(`Continue delete ${user.firstName} ${user.lastName}?`)
-        onDeleteOpen()
+        setIsDeleteOpen(true)
     }
 
     const handleDeleteUserCancel = () => {
         setDeleteUserId(0)
-        onDeleteClose()
+        setIsDeleteOpen(false)
     }
 
     const handleDeleteUserConfirm = async () => {
@@ -76,7 +75,7 @@ function Users() {
             })
         } finally {
             setDeleteUserId(0)
-            onDeleteClose()
+            setIsDeleteOpen(false)
         }
     }
 

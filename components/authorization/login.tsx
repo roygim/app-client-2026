@@ -1,11 +1,12 @@
 'use client'
 
 import { toaster } from '@/components/ui/toaster';
+import { InputGroup } from '@/components/ui/input-group';
+import { Spinner } from '@/components/ui/spinner';
 import useUsers from '@/lib/hooks/useUsers';
 import { ResponseError, UserRole } from '@/lib/types';
 import { delay } from '@/lib/utils/common.util';
 import { useUserStore } from '@/lib/zustand/user';
-import { Box, InputGroup, Input, Button, Spinner } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
@@ -100,7 +101,7 @@ function LoginUser() {
     }
 
     return (
-        <Box bg="white" borderWidth='1px' borderRadius='lg' padding='24px' paddingBottom={error ? '0' : '24px'} shadow='lg' className='w-full sm:max-w-[468px]'>
+        <div className={`w-full sm:max-w-117 bg-white border border-gray-200 rounded-lg p-6 shadow-lg${error ? ' pb-0' : ''}`}>
             <form onSubmit={handleSubmit(loginUserSubmit)}>
                 <div className='space-y-4'>
                     <Controller
@@ -115,19 +116,15 @@ function LoginUser() {
                         }}
                         render={({ field }) =>
                             <div>
-                                <InputGroup
-                                    startElement={<MdEmail />}
-                                >
-                                    <Input
+                                <InputGroup startElement={<MdEmail />}>
+                                    <input
                                         {...field}
-                                        border="1px solid"
-                                        borderColor="gray.300"
+                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary"
                                         placeholder='email'
                                     />
                                 </InputGroup>
-                                {
-                                    errors.email &&
-                                    <span className='inline-block pt-[4px] pr-[8px] text-sm text-info-error'>
+                                {errors.email &&
+                                    <span className='inline-block pt-1 pr-2 text-sm text-info-error'>
                                         {errors.email.message}
                                     </span>
                                 }
@@ -165,17 +162,15 @@ function LoginUser() {
                                         </button>
                                     }
                                 >
-                                    <Input
+                                    <input
                                         {...field}
                                         type={showPassword ? 'text' : 'password'}
-                                        border="1px solid"
-                                        borderColor="gray.300"
+                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary"
                                         placeholder='password'
                                     />
                                 </InputGroup>
-                                {
-                                    errors.password &&
-                                    <span className='inline-block pt-[4px] pr-[8px] text-sm text-info-error'>
+                                {errors.password &&
+                                    <span className='inline-block pt-1 pr-2 text-sm text-info-error'>
                                         {errors.password.message}
                                     </span>
                                 }
@@ -183,26 +178,22 @@ function LoginUser() {
                         }
                     />
                 </div>
-                <Button
+                <button
                     type='submit'
-                    variant='solid'
-                    width='full'
-                    borderRadius='4px'
-                    className='mt-8 bg-background-secondary'
+                    className='w-full mt-8 h-9 rounded bg-background-secondary text-white font-medium flex items-center justify-center disabled:opacity-50 cursor-pointer'
                     disabled={isLoading}
                 >
-                    {isLoading ? <Spinner size="sm" mr={2} /> : 'Login'}
-                </Button>
+                    {isLoading ? <Spinner className="mr-2" /> : 'Login'}
+                </button>
             </form>
-            {
-                error &&
-                <div className='flex  justify-center py-3'>
+            {error &&
+                <div className='flex justify-center py-3'>
                     <span className='text-sm text-info-error'>
                         {error}
                     </span>
                 </div>
             }
-        </Box>
+        </div>
     )
 }
 
