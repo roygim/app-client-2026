@@ -16,9 +16,9 @@ function ConfirmationModal({ title = 'Action confirmation', question = 'Execute 
                 <Dialog.Overlay className="fixed inset-0 bg-black/60 z-40" />
                 <Dialog.Content className="fixed top-20 left-1/2 -translate-x-1/2 w-[95%] sm:w-105 md:w-130 max-w-full bg-white rounded-lg shadow-xl z-50">
                     <div className='flex justify-between items-center pl-4 pr-2 pt-2'>
-                        <h2 className='text-[18px] font-semibold'>
+                        <Dialog.Title className='text-[18px] font-semibold'>
                             {title}
-                        </h2>
+                        </Dialog.Title>
                         <Dialog.Close asChild>
                             <button
                                 className='p-1.5 rounded hover:bg-gray-100 cursor-pointer'
