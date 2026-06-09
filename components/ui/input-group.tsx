@@ -1,4 +1,5 @@
 import React from 'react'
+import { cn } from '@/lib/utils/common.util'
 
 interface InputGroupProps {
     startElement?: React.ReactNode
@@ -10,17 +11,16 @@ interface InputGroupProps {
 export function InputGroup({ startElement, endElement, children, className }: InputGroupProps) {
     const child = React.Children.only(children) as React.ReactElement<React.InputHTMLAttributes<HTMLInputElement>>
 
-    const extraClass = [
-        startElement ? 'pl-8' : '',
-        endElement ? 'pr-8' : '',
-    ].filter(Boolean).join(' ')
-
     const clonedChild = React.cloneElement(child, {
-        className: [child.props.className, extraClass].filter(Boolean).join(' '),
+        className: cn(
+            child.props.className,
+            startElement ? 'pl-8' : '',
+            endElement ? 'pr-8' : '',
+        ),
     })
 
     return (
-        <div className={`relative${className ? ` ${className}` : ''}`}>
+        <div className={cn('relative', className)}>
             {startElement && (
                 <span className="absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
                     {startElement}
