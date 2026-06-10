@@ -1,9 +1,10 @@
 
 import axios from "axios";
+import { API_BASE_URL } from "@/lib/consts";
 
 export const getUsers = async () => {
     try {
-        const url = `${process.env.API_BASE_URL}/users`;
+        const url = `${API_BASE_URL}/users`;
 
         const response = await axios.get(url, { withCredentials: true });
 
@@ -20,7 +21,7 @@ export const getUsers = async () => {
 
 export const loginUser = async ({ email, password }: { email: string, password: string }) => {
     try {
-        const url = `${process.env.API_BASE_URL}/login`;
+        const url = `${API_BASE_URL}/login`;
 
         const data = {
             email,
@@ -42,7 +43,7 @@ export const loginUser = async ({ email, password }: { email: string, password: 
 
 export const loadUser = async () => {
     try {
-        const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/loaduser`;
+        const url = `${API_BASE_URL}/loaduser`;
 
         const response = await axios.post(url, null, { withCredentials: true });
 
@@ -59,7 +60,7 @@ export const loadUser = async () => {
 
 export const logoutUser = async () => {
     try {
-        const url = `${process.env.API_BASE_URL}/logout`;
+        const url = `${API_BASE_URL}/logout`;
 
         const response = await axios.delete(url, { withCredentials: true });
 
@@ -76,7 +77,7 @@ export const logoutUser = async () => {
 
 export const addUser = async ({ firstName, lastName, email, password }: { firstName: string, lastName: string, email: string, password: string }) => {
     try {
-        const url = `${process.env.API_BASE_URL}/adduser`;
+        const url = `${API_BASE_URL}/adduser`;
 
         const data = {
             firstName,
@@ -100,7 +101,7 @@ export const addUser = async ({ firstName, lastName, email, password }: { firstN
 
 export const editUser = async ({ userId, firstName, lastName }: { userId: number, firstName: string, lastName: string }) => {
     try {
-        const url = `${process.env.API_BASE_URL}/edituser/${userId}`;
+        const url = `${API_BASE_URL}/edituser/${userId}`;
 
         const data = {
             firstName,
@@ -122,7 +123,7 @@ export const editUser = async ({ userId, firstName, lastName }: { userId: number
 
 export const deleteUser = async ({ userId }: { userId: number }) => {
     try {
-        const url = `${process.env.API_BASE_URL}/deleteuser/${userId}`;
+        const url = `${API_BASE_URL}/deleteuser/${userId}`;
 
         const response = await axios.delete(url, { withCredentials: true });
 
