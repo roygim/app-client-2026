@@ -37,8 +37,8 @@ function Header() {
     const loadUser = async () => {
         try {
             const res = await loadUserAsync()
-            if (res && res.success) {
-                saveUser(res.data)
+            if (res) {
+                saveUser(res)
             }
         } catch (error) {
         }
@@ -46,14 +46,12 @@ function Header() {
 
     const logoutUser = async () => {
         try {
-            removeUser()
-            router.push(`/`)
-            // const res = await logoutUserAsync()
+            const res = await logoutUserAsync()
 
-            // if (res && res.success) {
-            //     removeUser()
-            //     router.push(`/`)
-            // }
+            if (res && res.success) {
+                removeUser()
+                router.push(`/`)
+            }
         } catch (error) {
             alert('אירעה שגיאה')
         }

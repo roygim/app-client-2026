@@ -63,7 +63,7 @@ export const logoutUser = async () => {
         const url = `${API_BASE_URL}/logout`;
 
         const response = await axios.delete(url, { withCredentials: true });
-
+        console.log('response', response);
         if (response && response.data) {
             return response.data;
         } else {
