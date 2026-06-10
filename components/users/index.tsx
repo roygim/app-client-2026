@@ -66,10 +66,11 @@ function Users() {
                 })
                 queryClient.invalidateQueries({ queryKey: ['users'] })
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log('error', error);
+            const errStatus = error?.response?.status
             toaster.create({
-                description: "error occurred",
+                description: errStatus === 401 ? "error occurred - unauthorized" : "error occurred",
                 type: "error"
             })
         } finally {

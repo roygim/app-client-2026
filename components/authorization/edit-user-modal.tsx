@@ -43,7 +43,7 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
 
         try {
             const res = await editUserAsync({ userId: user.id, firstname, lastname })
-
+            
             if (res && res.success) {
                 toaster.create({
                     description: "User edit successfully",
@@ -58,8 +58,9 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
             }
         } catch (error: any) {
             console.log('error', error);
+            const errStatus = error?.response?.status
             toaster.create({
-                description: "error occurred",
+                description: errStatus === 401 ? "error occurred - unauthorized" : "error ",
                 type: "error"
             })
         }
