@@ -111,7 +111,7 @@ export const editUser = async ({ userId, firstname, lastname }: { userId: number
         const response = await axios.put(url, data, { withCredentials: true });
 
         if (response && response.data && response.data.success) {
-            return response.data.data;
+            return response.data;
         } else {
             throw new Error('error to edit user');
         }
@@ -123,7 +123,7 @@ export const editUser = async ({ userId, firstname, lastname }: { userId: number
 
 export const deleteUser = async ({ userId }: { userId: number }) => {
     try {
-        const url = `${API_BASE_URL}/deleteuser/${userId}`;
+        const url = `${API_BASE_URL}/users/delete/${userId}`;
 
         const response = await axios.delete(url, { withCredentials: true });
 
