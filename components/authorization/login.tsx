@@ -60,8 +60,8 @@ function LoginUser() {
 
             saveUser({
                 id: 12345,
-                firstName: 'Roei',
-                lastName: 'Grumet',
+                firstname: 'Roei',
+                lastname: 'Grumet',
                 email: 'roeig@shva.co.il',
                 role: UserRole.Admin
             })

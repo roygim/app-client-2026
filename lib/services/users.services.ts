@@ -5,7 +5,7 @@ import { User } from "../types";
 
 export const getUsers = async (): Promise<User[]> => {
     try {
-        return mockUsers
+        // return mockUsers
         const data = await usersRepositpry.getUsers();
         return data;
     } catch (error) {
@@ -43,9 +43,9 @@ export const logoutUser = async () => {
     }
 }
 
-export const addUser = async ({ firstName, lastName, email, password }: { firstName: string, lastName: string, email: string, password: string }) => {
+export const addUser = async ({ firstname, lastname, email, password }: { firstname: string, lastname: string, email: string, password: string }) => {
     try {
-        const data = await usersRepositpry.addUser({ firstName, lastName, email, password });
+        const data = await usersRepositpry.addUser({ firstname, lastname, email, password });
         return data;
     }
     catch (error) {
@@ -53,9 +53,9 @@ export const addUser = async ({ firstName, lastName, email, password }: { firstN
     }
 }
 
-export const editUser = async ({ userId, firstName, lastName }: { userId: number, firstName: string, lastName: string }) => {
+export const editUser = async ({ userId, firstname, lastname }: { userId: number, firstname: string, lastname: string }) => {
     try {
-        const data = await usersRepositpry.editUser({ userId, firstName, lastName });
+        const data = await usersRepositpry.editUser({ userId, firstname, lastname });
         return data;
     }
     catch (error) {

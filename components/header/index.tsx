@@ -93,7 +93,7 @@ function Header() {
                     :
                     <div className='flex items-center gap-2'>
                         <div className='text-sm font-semibold'>
-                            Hi, <span className='capitalize'>{user?.firstName}</span>
+                            Hi, <span className='capitalize'>{user?.firstname}</span>
                         </div>
                         <button
                             className='text-sm font-semibold cursor-pointer hover:underline'

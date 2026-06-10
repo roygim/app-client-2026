@@ -13,8 +13,8 @@ import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 
 interface AddInputs {
-    firstName: string
-    lastName: string
+    firstname: string
+    lastname: string
     email: string
     newPassword: string
     confirmNewPassword: string
@@ -36,8 +36,8 @@ function AddUser() {
         formState: { errors }
     } = useForm<AddInputs>({
         defaultValues: {
-            firstName: '',
-            lastName: '',
+            firstname: '',
+            lastname: '',
             email: '',
             newPassword: '',
             confirmNewPassword: '',
@@ -50,13 +50,13 @@ function AddUser() {
         if (isLoading)
             return
 
-        const { firstName, lastName, email, newPassword } = data
+        const { firstname, lastname, email, newPassword } = data
 
         try {
             setError('')
             setIsLoading(true)
             // await delay()
-            const res = await addUserAsync({ firstName, lastName, email, password: newPassword })
+            const res = await addUserAsync({ firstname, lastname, email, password: newPassword })
 
             if (res && res.success) {
                 toaster.create({
@@ -91,7 +91,7 @@ function AddUser() {
             <form onSubmit={handleSubmit(addUserSubmit)}>
                 <div className='space-y-4'>
                     <Controller
-                        name="firstName"
+                        name="firstname"
                         control={control}
                         rules={{
                             required: 'required field',
@@ -106,16 +106,16 @@ function AddUser() {
                                         placeholder='first name'
                                     />
                                 </InputGroup>
-                                {errors.firstName &&
+                                {errors.firstname &&
                                     <span className='inline-block pt-1 pr-2 text-sm text-info-error'>
-                                        {errors.firstName.message}
+                                        {errors.firstname.message}
                                     </span>
                                 }
                             </div>
                         }
                     />
                     <Controller
-                        name="lastName"
+                        name="lastname"
                         control={control}
                         rules={{
                             required: 'required field',
@@ -130,9 +130,9 @@ function AddUser() {
                                         placeholder='last name'
                                     />
                                 </InputGroup>
-                                {errors.lastName &&
+                                {errors.lastname &&
                                     <span className='inline-block pt-1 pr-2 text-sm text-info-error'>
-                                        {errors.lastName.message}
+                                        {errors.lastname.message}
                                     </span>
                                 }
                             </div>

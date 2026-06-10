@@ -14,8 +14,8 @@ type EditUserModalProps = {
 }
 
 interface EditInpusts {
-    firstName: string
-    lastName: string
+    firstname: string
+    lastname: string
 }
 
 function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
@@ -30,8 +30,8 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
         formState: { errors }
     } = useForm<EditInpusts>({
         defaultValues: {
-            firstName: user.firstName ?? '',
-            lastName: user.lastName ?? ''
+            firstname: user.firstname ?? '',
+            lastname: user.lastname ?? ''
         }
     })
 
@@ -39,10 +39,10 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
         if (isEditPending)
             return
 
-        const { firstName, lastName } = data
+        const { firstname, lastname } = data
 
         try {
-            const res = await editUserAsync({ userId: user.id, firstName, lastName })
+            const res = await editUserAsync({ userId: user.id, firstname, lastname })
 
             if (res && res.success) {
                 toaster.create({
@@ -67,8 +67,8 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
 
     const closeModal = (refresh: boolean = false) => {
         reset({
-            firstName: '',
-            lastName: ''
+            firstname: '',
+            lastname: ''
         })
         handleCloseModal(refresh)
     }
@@ -98,7 +98,7 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
                         <div className='px-4 mt-3'>
                             <div className='space-y-5'>
                                 <Controller
-                                    name="firstName"
+                                    name="firstname"
                                     control={control}
                                     rules={{
                                         required: 'required field',
@@ -113,16 +113,16 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
                                                     placeholder='first name'
                                                 />
                                             </InputGroup>
-                                            {errors.firstName &&
+                                            {errors.firstname &&
                                                 <span className='inline-block pt-1 pr-2 text-sm text-info-error'>
-                                                    {errors.firstName.message}
+                                                    {errors.firstname.message}
                                                 </span>
                                             }
                                         </div>
                                     }
                                 />
                                 <Controller
-                                    name="lastName"
+                                    name="lastname"
                                     control={control}
                                     rules={{
                                         required: 'required field',
@@ -137,9 +137,9 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
                                                     placeholder='last name'
                                                 />
                                             </InputGroup>
-                                            {errors.lastName &&
+                                            {errors.lastname &&
                                                 <span className='inline-block pt-1 pr-2 text-sm text-info-error'>
-                                                    {errors.lastName.message}
+                                                    {errors.lastname.message}
                                                 </span>
                                             }
                                         </div>

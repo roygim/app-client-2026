@@ -42,7 +42,7 @@ function Users() {
 
     const handleDeleteUserClick = (user: User) => {
         setDeleteUserId(user.id)
-        setDeleteQuestion(`Continue delete ${user.firstName} ${user.lastName}?`)
+        setDeleteQuestion(`Continue delete ${user.firstname} ${user.lastname}?`)
         setIsDeleteOpen(true)
     }
 
@@ -139,7 +139,7 @@ function Users() {
                                             {user.id}
                                         </td>
                                         <td className='border-b border-gray-200 bg-white px-5 py-5 text-sm'>
-                                            {`${user.firstName} ${user.lastName}`}
+                                            {(user.firstname && user.lastname)? `${user.firstname} ${user.lastname}`: ''}
                                         </td>
                                         <td className='border-b border-gray-200 bg-white px-5 py-5 text-sm'>
                                             {user.email}

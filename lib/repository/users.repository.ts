@@ -75,13 +75,13 @@ export const logoutUser = async () => {
     }
 }
 
-export const addUser = async ({ firstName, lastName, email, password }: { firstName: string, lastName: string, email: string, password: string }) => {
+export const addUser = async ({ firstname, lastname, email, password }: { firstname: string, lastname: string, email: string, password: string }) => {
     try {
-        const url = `${API_BASE_URL}/adduser`;
+        const url = `${API_BASE_URL}/register`;
 
         const data = {
-            firstName,
-            lastName,
+            firstname,
+            lastname,
             email,
             password
         };
@@ -99,13 +99,13 @@ export const addUser = async ({ firstName, lastName, email, password }: { firstN
     }
 }
 
-export const editUser = async ({ userId, firstName, lastName }: { userId: number, firstName: string, lastName: string }) => {
+export const editUser = async ({ userId, firstname, lastname }: { userId: number, firstname: string, lastname: string }) => {
     try {
-        const url = `${API_BASE_URL}/edituser/${userId}`;
+        const url = `${API_BASE_URL}/users/update/${userId}`;
 
         const data = {
-            firstName,
-            lastName
+            firstname,
+            lastname
         };
 
         const response = await axios.put(url, data, { withCredentials: true });
