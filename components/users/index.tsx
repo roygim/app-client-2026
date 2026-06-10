@@ -27,7 +27,6 @@ function Users() {
     const [isDeleteOpen, setIsDeleteOpen] = useState(false)
 
     const handleEditUserClick = (user: User) => {
-        console.log('user', user);
         setEditUser(user)
         setIsEditOpen(true)
     }

@@ -5,7 +5,6 @@ import { InputGroup } from '@/components/ui/input-group';
 import { Spinner } from '@/components/ui/spinner';
 import useUsers from '@/lib/hooks/useUsers';
 import { ResponseError, UserRole } from '@/lib/types';
-import { delay } from '@/lib/utils/common.util';
 import { useUserStore } from '@/lib/zustand/user';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -51,42 +50,30 @@ function LoginUser() {
             setError('')
             setIsLoading(true)
 
-            await delay()
+            const res = await loginUserAsync({ email, password })
 
-            toaster.create({
-                description: "User login successfully",
-                type: "success"
-            })
-
-            saveUser({
-                id: 12345,
-                firstname: 'Roei',
-                lastname: 'Grumet',
-                email: 'roeig@shva.co.il',
-                role: UserRole.Admin
-            })
-
-            router.push(`/`)
-
-            // const res = await loginUserAsync({ email, password })
-
-            // if (res && res.success && res.user) {
-            //     toaster.create({
-            //         description: "User login successfully",
-            //         type: "success"
-            //     })
-            //     saveUser(res.user)
-            //     router.push(`/`)
-            // } else {
-            //     setError("error occurred")
-            // }
+            if (res && res.user) {
+                toaster.create({
+                    description: "User login successfully",
+                    type: "success"
+                })
+                saveUser(res.user)
+                router.push(`/`)
+            } else {
+                setError("error occurred")
+            }
         } catch (error: any) {
-            console.log('error', error);
             const errType = error?.response?.data?.error
             if (errType) {
                 switch (errType) {
                     case ResponseError.InValidRequest:
                         setError("error occurred")
+                        break;
+                    case ResponseError.UserNotFound:
+                        setError("User not found")
+                        break;
+                    case ResponseError.InvalidPassword:
+                        setError("Invalid password")
                         break;
                     default:
                         setError("error occurred")

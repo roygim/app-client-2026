@@ -22,7 +22,7 @@ export const getUsers = async () => {
 export const loginUser = async ({ email, password }: { email: string, password: string }) => {
     try {
         const url = `${API_BASE_URL}/login`;
-
+        
         const data = {
             email,
             password

@@ -19,8 +19,6 @@ function Header() {
     const isUserLogin = useUserStore((state) => state.isLogin)
     const removeUser = useUserStore((state) => state.removeUser)
 
-    console.log('user', user);
-
     const {
         mutateAsync: loadUserAsync
     } = loadUserMutation()

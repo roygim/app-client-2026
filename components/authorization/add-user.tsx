@@ -55,7 +55,7 @@ function AddUser() {
         try {
             setError('')
             setIsLoading(true)
-            // await delay()
+            
             const res = await addUserAsync({ firstname, lastname, email, password: newPassword })
 
             if (res && res.success) {

@@ -1,6 +1,7 @@
 export enum ResponseError {
     InValidRequest = "InvalidRequest",
-    NotFound = "NotFound",
+    UserNotFound = "UserNotFound",
+    InvalidPassword = "InvalidPassword",
     Unauthorized = "Unauthorized",
     InternalServerError = "InternalServerError"
 }
