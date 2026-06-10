@@ -89,7 +89,7 @@ export const addUser = async ({ firstname, lastname, email, password }: { firstn
         const response = await axios.post(url, data, { withCredentials: true });
 
         if (response && response.data && response.data.success) {
-            return response.data.data;
+            return response.data;
         } else {
             throw new Error('error to add user');
         }
