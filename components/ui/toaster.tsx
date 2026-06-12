@@ -59,7 +59,7 @@ export function Toaster({ position: defaultPosition = 'bottom-center' }: { posit
                         <Toast.Root
                             key={toast.id}
                             className={cn(
-                                'flex items-start gap-3 rounded-lg border px-4 py-3 shadow-lg bg-white w-72',
+                                'flex items-start gap-3 rounded-lg border border-surface-border px-4 py-3 shadow-lg bg-surface w-72',
                                 'data-[state=open]:animate-in',
                                 pos.startsWith('top') ? 'data-[state=open]:slide-in-from-top-2' : 'data-[state=open]:slide-in-from-bottom-2',
                                 'data-[state=closed]:animate-out data-[state=closed]:fade-out-0'
@@ -84,12 +84,12 @@ export function Toaster({ position: defaultPosition = 'bottom-center' }: { posit
                             </span>
                             <div className="flex-1 min-w-0">
                                 {toast.title && (
-                                    <Toast.Title className="text-sm font-semibold text-gray-900">
+                                    <Toast.Title className="text-sm font-semibold text-foreground">
                                         {toast.title}
                                     </Toast.Title>
                                 )}
                                 {toast.description && (
-                                    <Toast.Description className="text-sm text-gray-600">
+                                    <Toast.Description className="text-sm text-gray-600 dark:text-gray-300">
                                         {toast.description}
                                     </Toast.Description>
                                 )}

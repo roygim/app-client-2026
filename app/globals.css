@@ -3,6 +3,8 @@
 
 @theme {
   --color-foreground: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-border: #e5e7eb;
   --color-background-primary: #c1deff;
   --color-background-secondary: #84afff;
   --color-background-tertiary: #5c8de9;
@@ -12,6 +14,8 @@
 
 .dark {
   --color-foreground: #fff;
+  --color-surface: #334155;
+  --color-surface-border: #475569;
   --color-background-primary: #1e293b;
   --color-background-secondary: #3b82f6;
 }

@@ -87,7 +87,7 @@ function AddUser() {
     }
 
     return (
-        <div className={`w-full sm:max-w-117 bg-white border border-gray-200 rounded-lg p-6 shadow-lg${error ? ' pb-0' : ''}`}>
+        <div className={`w-full sm:max-w-117 bg-surface border border-surface-border rounded-lg p-6 shadow-lg${error ? ' pb-0' : ''}`}>
             <form onSubmit={handleSubmit(addUserSubmit)}>
                 <div className='space-y-4'>
                     <Controller

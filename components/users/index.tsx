@@ -135,16 +135,16 @@ function Users() {
                             {
                                 users.map((user, index) => (
                                     <tr key={index} className='text-center'>
-                                        <td className='border-b border-gray-200 bg-white px-5 py-5 text-sm'>
+                                        <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
                                             {user.id}
                                         </td>
-                                        <td className='border-b border-gray-200 bg-white px-5 py-5 text-sm'>
+                                        <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
                                             {(user.firstname && user.lastname)? `${user.firstname} ${user.lastname}`: ''}
                                         </td>
-                                        <td className='border-b border-gray-200 bg-white px-5 py-5 text-sm'>
+                                        <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
                                             {user.email}
                                         </td>
-                                        <td className='border-b border-gray-200 bg-white px-5 py-5 text-sm'>
+                                        <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
                                             <button
                                                 className='cursor-pointer'
                                                 onClick={(e) => {
@@ -155,7 +155,7 @@ function Users() {
                                                 <FaRegEdit className='inline' />
                                             </button>
                                         </td>
-                                        <td className='border-b border-gray-200 bg-white px-5 py-5 text-sm'>
+                                        <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
                                             <button
                                                 className='cursor-pointer'
                                                 onClick={(e) => {
