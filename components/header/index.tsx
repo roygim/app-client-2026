@@ -7,11 +7,13 @@ import { LogoIcon } from '@/assets/logo';
 import logoIconSvg from "@/public/images/logo-icon.svg";
 import Image from 'next/image';
 import useUsers from '@/lib/hooks/useUsers';
-import { useUserStore } from '@/lib/zustand/user'; 
+import { useUserStore } from '@/lib/zustand/user';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
 function Header() {
     const router = useRouter()
     const [mounted, setMounted] = useState(false)
+    const [isDark, setIsDark] = useState(false)
     const { loadUserMutation, logoutUserMutation } = useUsers()
 
     const user = useUserStore((state) => state.user)
@@ -33,6 +35,20 @@ function Header() {
         }
         setMounted(true)
     }, [isUserLogin])
+
+    useEffect(() => {
+        const stored = localStorage.getItem('theme')
+        const dark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        setIsDark(dark)
+        document.documentElement.classList.toggle('dark', dark)
+    }, [])
+
+    const toggleDark = () => {
+        const next = !isDark
+        setIsDark(next)
+        document.documentElement.classList.toggle('dark', next)
+        localStorage.setItem('theme', next ? 'dark' : 'light')
+    }
 
     const loadUser = async () => {
         try {
@@ -79,6 +95,14 @@ function Header() {
                         <Link href='/login' className='text-sm font-semibold'>
                             Sign In
                         </Link>
+                        <button
+                            type='button'
+                            onClick={toggleDark}
+                            className='cursor-pointer text-lg'
+                            aria-label='Toggle dark mode'
+                        >
+                            {isDark ? <MdLightMode /> : <MdDarkMode />}
+                        </button>
                         <span className='pb-1'>
                             |
                         </span>
