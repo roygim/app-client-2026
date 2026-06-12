@@ -92,9 +92,6 @@ function Header() {
             {
                 !isUserLogin ?
                     <div className='flex items-center gap-2'>
-                        <Link href='/login' className='text-sm font-semibold'>
-                            Sign In
-                        </Link>
                         <button
                             type='button'
                             onClick={toggleDark}
@@ -106,12 +103,29 @@ function Header() {
                         <span className='pb-1'>
                             |
                         </span>
+                        <Link href='/login' className='text-sm font-semibold'>
+                            Sign In
+                        </Link>                        
+                        <span className='pb-1'>
+                            |
+                        </span>
                         <Link href='/register' className='text-sm font-semibold'>
                             Sign Up
                         </Link>
                     </div>
                     :
                     <div className='flex items-center gap-2'>
+                        <button
+                            type='button'
+                            onClick={toggleDark}
+                            className='cursor-pointer text-lg'
+                            aria-label='Toggle dark mode'
+                        >
+                            {isDark ? <MdLightMode /> : <MdDarkMode />}
+                        </button>
+                        <span className='pb-1'>
+                            |
+                        </span>
                         <div className='text-sm font-semibold'>
                             Hi, <span className='capitalize'>{user?.firstname}</span>
                         </div>
