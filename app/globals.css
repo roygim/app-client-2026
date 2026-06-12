@@ -2,6 +2,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --color-foreground: #0f172a;
   --color-background-primary: #c1deff;
   --color-background-secondary: #84afff;
   --color-background-tertiary: #5c8de9;
@@ -10,6 +11,7 @@
 }
 
 .dark {
+  --color-foreground: #fff;
   --color-background-primary: #1e293b;
   --color-background-secondary: #3b82f6;
 }

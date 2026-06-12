@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <div className="bg-background-primary">
+          <div className="bg-background-primary text-foreground min-h-screen">
             <header className="max-w-7xl mx-auto px-2 sm:px-0">
               <Header />
             </header>
