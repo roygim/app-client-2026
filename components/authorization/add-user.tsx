@@ -102,7 +102,7 @@ function AddUser() {
                                 <InputGroup startElement={<FaUserAlt />}>
                                     <input
                                         {...field}
-                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary"
+                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                         placeholder='first name'
                                     />
                                 </InputGroup>
@@ -126,7 +126,7 @@ function AddUser() {
                                 <InputGroup startElement={<FaUserAlt />}>
                                     <input
                                         {...field}
-                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary"
+                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                         placeholder='last name'
                                     />
                                 </InputGroup>
@@ -153,7 +153,7 @@ function AddUser() {
                                 <InputGroup startElement={<MdEmail />}>
                                     <input
                                         {...field}
-                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary"
+                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                         placeholder='email'
                                     />
                                 </InputGroup>
@@ -198,7 +198,7 @@ function AddUser() {
                                     <input
                                         {...field}
                                         type={showPassword ? 'text' : 'password'}
-                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary"
+                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                         placeholder='password'
                                     />
                                 </InputGroup>
@@ -223,7 +223,7 @@ function AddUser() {
                                     <input
                                         {...field}
                                         type='password'
-                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary"
+                                        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                         placeholder='confirm password'
                                     />
                                 </InputGroup>
