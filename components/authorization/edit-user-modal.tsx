@@ -110,7 +110,7 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
                                             <InputGroup startElement={<FaUserAlt />}>
                                                 <input
                                                     {...field}
-                                                    className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                                                    className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary"
                                                     placeholder='first name'
                                                 />
                                             </InputGroup>
@@ -134,7 +134,7 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
                                             <InputGroup startElement={<FaUserAlt />}>
                                                 <input
                                                     {...field}
-                                                    className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                                                    className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-background-secondary"
                                                     placeholder='last name'
                                                 />
                                             </InputGroup>

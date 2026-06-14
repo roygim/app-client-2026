@@ -10,6 +10,7 @@
   --color-background-tertiary: #5c8de9;
   --color-info-success: #16a34a;
   --color-info-error: #b91c1c;
+  --color-placeholder: #9ca3af;
 }
 
 .dark {
@@ -18,4 +19,9 @@
   --color-surface-border: #475569;
   --color-background-primary: #1e293b;
   --color-background-secondary: #3b82f6;
+  --color-placeholder: #e4e6e6;
+}
+
+::placeholder {
+  color: var(--color-placeholder);
 }
