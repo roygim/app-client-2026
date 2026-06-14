@@ -182,6 +182,7 @@ function AddUser() {
                                     endElement={
                                         <button
                                             type='button'
+                                            className='pt-1 cursor-pointer'
                                             onMouseDown={(e) => {
                                                 e.preventDefault()
                                                 setShowPassword(true)
