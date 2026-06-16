@@ -70,7 +70,7 @@ function Users() {
             console.log('error', error);
             const errStatus = error?.response?.status
             toaster.create({
-                description: errStatus === 401 ? "error occurred - unauthorized" : "error occurred",
+                description: errStatus === 401 ? "error occurred - unauthorized - please login" : "error occurred",
                 type: "error"
             })
         } finally {

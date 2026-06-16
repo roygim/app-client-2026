@@ -60,7 +60,7 @@ function EditUserModal({ user, isOpen, handleCloseModal }: EditUserModalProps) {
             console.log('error', error);
             const errStatus = error?.response?.status
             toaster.create({
-                description: errStatus === 401 ? "error occurred - unauthorized" : "error ",
+                description: errStatus === 401 ? "error occurred - unauthorized - please login" : "error ",
                 type: "error"
             })
         }
