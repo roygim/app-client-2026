@@ -4,7 +4,7 @@ import { API_BASE_URL } from "@/lib/consts";
 
 export const getUsers = async () => {
     try {
-        const url = `${API_BASE_URL}/users`;
+        const url = `${API_BASE_URL}/users/all`;
         
         const response = await axios.get(url, { withCredentials: true });
 
