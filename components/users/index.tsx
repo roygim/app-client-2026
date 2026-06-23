@@ -79,6 +79,16 @@ function Users() {
         }
     }
 
+    const handleCopyEmail = async (email: string) => {
+        if (!email) return
+        try {
+            await navigator.clipboard.writeText(email)
+            toaster.create({ title: 'Email copied', description: email, type: 'success' })
+        } catch {
+            toaster.create({ title: 'Copy failed', type: 'error' })
+        }
+    }
+    
     if (isLoading) {
         return (
             <div>
@@ -142,7 +152,14 @@ function Users() {
                                             {(user.firstname && user.lastname)? `${user.firstname} ${user.lastname}`: ''}
                                         </td>
                                         <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
-                                            {user.email}
+                                            <button
+                                                type='button'
+                                                className='cursor-pointer hover:underline'
+                                                title='Click to copy'
+                                                onClick={() => handleCopyEmail(user.email)}
+                                            >
+                                                {user.email}
+                                            </button>
                                         </td>
                                         <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
                                             <button
