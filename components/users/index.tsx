@@ -70,8 +70,9 @@ function Users() {
             console.log('error', error);
             const errStatus = error?.response?.status
             toaster.create({
-                description: errStatus === 401 ? "error occurred - unauthorized - please login" : "error occurred",
-                type: "error"
+                title: 'Error occurred',
+                description: errStatus === 401 ? 'Unauthorized - please login' : 'error occurred',
+                type: 'error'
             })
         } finally {
             setDeleteUserId(0)
@@ -88,7 +89,7 @@ function Users() {
             toaster.create({ title: 'Copy failed', type: 'error' })
         }
     }
-    
+
     if (isLoading) {
         return (
             <div>
@@ -149,7 +150,7 @@ function Users() {
                                             {user.id}
                                         </td>
                                         <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
-                                            {(user.firstname && user.lastname)? `${user.firstname} ${user.lastname}`: ''}
+                                            {(user.firstname && user.lastname) ? `${user.firstname} ${user.lastname}` : ''}
                                         </td>
                                         <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
                                             <button
