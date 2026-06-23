@@ -112,10 +112,10 @@ function Users() {
                 <h1 className={cn("text-3xl font-bold mb-6", "underline")}>
                     Users:
                 </h1>
-                <div className='overflow-x-auto'>
+                <div className='overflow-auto max-h-[60vh]'>
                     <table className="w-full">
                         <thead>
-                            <tr className="text-center font-semibold uppercase tracking-widest bg-background-secondary">
+                            <tr className="sticky top-0 z-10 text-center font-semibold uppercase tracking-widest bg-background-secondary">
                                 <th className='px-5 py-3 '>
                                     id
                                 </th>
