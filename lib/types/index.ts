@@ -3,7 +3,8 @@ export enum ResponseError {
     UserNotFound = "UserNotFound",
     InvalidPassword = "InvalidPassword",
     Unauthorized = "Unauthorized",
-    InternalServerError = "InternalServerError"
+    InternalServerError = "InternalServerError",
+    UserAlreadyExists = "UserAlreadyExists"
 }
 
 export enum UserRole {

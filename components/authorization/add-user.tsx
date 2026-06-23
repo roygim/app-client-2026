@@ -71,8 +71,8 @@ function AddUser() {
             const errType = error?.response?.data?.error
             if (errType) {
                 switch (errType) {
-                    case ResponseError.InValidRequest:
-                        setError("error occurred")
+                    case ResponseError.UserAlreadyExists:
+                        setError("User already exists")
                         break;
                     default:
                         setError("error occurred")
