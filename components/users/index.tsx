@@ -112,7 +112,7 @@ function Users() {
                 <h1 className={cn("text-3xl font-bold mb-6", "underline")}>
                     Users:
                 </h1>
-                <div className='overflow-auto max-h-[60vh]'>
+                <div className='custom-scrollbar overflow-auto max-h-[60vh] rounded-lg border border-surface-border'>
                     <table className="w-full">
                         <thead>
                             <tr className="sticky top-0 z-10 text-center font-semibold uppercase tracking-widest bg-background-secondary">
