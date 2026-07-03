@@ -70,12 +70,23 @@ function Users() {
             console.log('error', error);
             const errStatus = error?.response?.status
             toaster.create({
-                description: errStatus === 401 ? "error occurred - unauthorized - please login" : "error occurred",
-                type: "error"
+                title: 'Error occurred',
+                description: errStatus === 401 ? 'Unauthorized - please login' : 'error occurred',
+                type: 'error'
             })
         } finally {
             setDeleteUserId(0)
             setIsDeleteOpen(false)
+        }
+    }
+
+    const handleCopyEmail = async (email: string) => {
+        if (!email) return
+        try {
+            await navigator.clipboard.writeText(email)
+            toaster.create({ title: 'Email copied', description: email, type: 'success' })
+        } catch {
+            toaster.create({ title: 'Copy failed', type: 'error' })
         }
     }
 
@@ -112,10 +123,10 @@ function Users() {
                 <h1 className={cn("text-3xl font-bold mb-6", "underline")}>
                     Users:
                 </h1>
-                <div className='overflow-x-auto'>
+                <div className='custom-scrollbar overflow-auto max-h-[60vh] rounded-lg border border-surface-border'>
                     <table className="w-full">
                         <thead>
-                            <tr className="text-center font-semibold uppercase tracking-widest bg-background-secondary">
+                            <tr className="sticky top-0 z-10 text-center font-semibold uppercase tracking-widest bg-background-secondary">
                                 <th className='px-5 py-3 '>
                                     id
                                 </th>
@@ -139,10 +150,17 @@ function Users() {
                                             {user.id}
                                         </td>
                                         <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
-                                            {(user.firstname && user.lastname)? `${user.firstname} ${user.lastname}`: ''}
+                                            {(user.firstname && user.lastname) ? `${user.firstname} ${user.lastname}` : ''}
                                         </td>
                                         <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
-                                            {user.email}
+                                            <button
+                                                type='button'
+                                                className='cursor-pointer hover:underline'
+                                                title='Click to copy'
+                                                onClick={() => handleCopyEmail(user.email)}
+                                            >
+                                                {user.email}
+                                            </button>
                                         </td>
                                         <td className='border-b border-surface-border bg-surface px-5 py-5 text-sm'>
                                             <button

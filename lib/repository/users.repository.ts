@@ -4,8 +4,8 @@ import { API_BASE_URL } from "@/lib/consts";
 
 export const getUsers = async () => {
     try {
-        const url = `${API_BASE_URL}/users`;
-
+        const url = `${API_BASE_URL}/users/all`;
+        
         const response = await axios.get(url, { withCredentials: true });
 
         if (response && response.data && response.data.success) {
@@ -21,7 +21,7 @@ export const getUsers = async () => {
 
 export const loginUser = async ({ email, password }: { email: string, password: string }) => {
     try {
-        const url = `${API_BASE_URL}/login`;
+        const url = `${API_BASE_URL}/users/login`;
         
         const data = {
             email,
@@ -43,8 +43,8 @@ export const loginUser = async ({ email, password }: { email: string, password: 
 
 export const loadUser = async () => {
     try {
-        const url = `${API_BASE_URL}/loaduser`;
-
+        const url = `${API_BASE_URL}/users/loaduser`;
+        
         const response = await axios.post(url, null, { withCredentials: true });
 
         if (response && response.data && response.data.success) {
@@ -60,7 +60,7 @@ export const loadUser = async () => {
 
 export const logoutUser = async () => {
     try {
-        const url = `${API_BASE_URL}/logout`;
+        const url = `${API_BASE_URL}/users/logout`;
 
         const response = await axios.delete(url, { withCredentials: true });
         console.log('response', response);
@@ -77,7 +77,7 @@ export const logoutUser = async () => {
 
 export const addUser = async ({ firstname, lastname, email, password }: { firstname: string, lastname: string, email: string, password: string }) => {
     try {
-        const url = `${API_BASE_URL}/register`;
+        const url = `${API_BASE_URL}/users/register`;
 
         const data = {
             firstname,
@@ -88,11 +88,7 @@ export const addUser = async ({ firstname, lastname, email, password }: { firstn
 
         const response = await axios.post(url, data, { withCredentials: true });
 
-        if (response && response.data && response.data.success) {
-            return response.data;
-        } else {
-            throw new Error('error to add user');
-        }
+        return response.data;
     }
     catch (error) {
         throw error;
